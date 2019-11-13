@@ -29,3 +29,14 @@ object ScalaJdbcConnectSelect extends App {
 As shown in the example, the format of the MySQL JDBC URL string is:
 
 jdbc:mysql://HOST:PORT/DATABASE
+
+------------------------------------------------
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.24</version>
+</dependency>
+
+
+
