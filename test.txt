@@ -38,5 +38,113 @@ jdbc:mysql://HOST:PORT/DATABASE
     <version>5.1.24</version>
 </dependency>
 
+===================================================================
+{
+	"VendorName": "EyeMed",
+	"ExtractName": "EyeMed_Retail_Adult",
+	"Version": 1.0,
+	"Table": [{
+		"Database": "cv_mbrshp",
+		"TableName": "Consumption_View",
+		"Join": [
+
+		],
+		"Field": [{
+				"Name": "GRP_NBR",
+				"Alias": "Group Number",
+				"ExtractHeader": "CRL-GRP",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": "False",
+				"default": "",
+				"Condition": "",
+				"Value": "",
+				"LogicalOp": ""
+			},
+			{
+				"Name": "SECT_NBR",
+				"Alias": "Section Number",
+				"ExtractHeader": "CRL-SECT",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": "False",
+				"default": "",
+				"Condition": "",
+				"Value": "",
+				"LogicalOp": ""
+			},
+			{
+				"Name": "MBR_NBR",
+				"Alias": "Member indicator",
+				"ExtractHeader": "CRL-MEM-IND",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": "False",
+				"default": "",
+				"Condition": "",
+				"Value": "",
+				"LogicalOp": ""
+			},
+			{
+				"Name": "MKTG_PLN_NBR",
+				"Alias": "",
+				"ExtractHeader": "",
+				"Display": "N",
+				"DataType": "String",
+				"Nullability": "False",
+				"default": "",
+				"Condition": "!=",
+				"Value": " ",
+				"LogicalOp": ""
+			}
+		]
+	}],
+	"DefaultColumns": [{
+			"Alias": "Record Type",
+			"ExtractHeader": "CRL-RECORD-TYPE",
+			"DataType": "String",
+			"Nullability": "False",
+			"default": "2",
+			"Transformation": [
+
+			]
+		},
+		{
+			"Alias": "Subscriber number-3bytes",
+			"ExtractHeader": "CRL-SUBSCRIBER-NBR3",
+			"DataType": "String",
+			"Nullability": "False",
+			"default": " ",
+			"Transformation": [
+
+			]
+		}
+	],
+	"Destination": [{
+		"Layout": "CRL",
+		"FileType": "Fixed-width",
+		"FileLocation": "/datalakedata/prod/ees/consumption/xferin/extract_engine/eyeMed",
+		"FileName": "HCSC_RETAIL_ILHMO_&FDATE&6FTIME.TXT",
+		"ArchiveLocation": "/{hdfs_env_nm}/ enterprise/ees/outgoing/archive/eyemed",
+		"Header": "False",
+		"SaveMode": "overwrite",
+		"Rules": [{
+				"Type": "Direct",
+				"Alias": "State",
+				"Condition": "=",
+				"Value": "IL",
+				"LogicalOp": "and"
+			},
+			{
+				"Type": "Derived - Age",
+				"Alias": "Date of Birth",
+				"Condition": ">=",
+				"Value": "19",
+				"LogicalOp": ""
+			}
+		]
+	}]
+}
+
 
 
