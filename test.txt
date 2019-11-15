@@ -55,11 +55,17 @@ jdbc:mysql://HOST:PORT/DATABASE
 				"ExtractHeader": "CRL-GRP",
 				"Display": "Y",
 				"DataType": "String",
-				"Nullability": "False",
+				"Nullability": False,
 				"default": "",
-				"Condition": "",
-				"Value": "",
-				"LogicalOp": ""
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
 			},
 			{
 				"Name": "SECT_NBR",
@@ -67,11 +73,35 @@ jdbc:mysql://HOST:PORT/DATABASE
 				"ExtractHeader": "CRL-SECT",
 				"Display": "Y",
 				"DataType": "String",
-				"Nullability": "False",
+				"Nullability": False,
 				"default": "",
-				"Condition": "",
-				"Value": "",
-				"LogicalOp": ""
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
+			},
+			{
+				"Name": "SUB_ID",
+				"Alias": "Subscriber number-9bytes",
+				"ExtractHeader": "CRL-SUBSCRIBER-NBR9",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": False,
+				"default": "",
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
 			},
 			{
 				"Name": "MBR_NBR",
@@ -79,11 +109,17 @@ jdbc:mysql://HOST:PORT/DATABASE
 				"ExtractHeader": "CRL-MEM-IND",
 				"Display": "Y",
 				"DataType": "String",
-				"Nullability": "False",
+				"Nullability": False,
 				"default": "",
-				"Condition": "",
-				"Value": "",
-				"LogicalOp": ""
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"case",
+					"value":"(1,1),(_,2)"
+				}]
 			},
 			{
 				"Name": "MKTG_PLN_NBR",
@@ -91,11 +127,107 @@ jdbc:mysql://HOST:PORT/DATABASE
 				"ExtractHeader": "",
 				"Display": "N",
 				"DataType": "String",
-				"Nullability": "False",
+				"Nullability": False,
 				"default": "",
-				"Condition": "!=",
-				"Value": " ",
-				"LogicalOp": ""
+				"Filter":[{
+					"Condition": "!=",
+					"Value": " ",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
+			},
+			{
+				"Name": "",
+				"Alias": "",
+				"ExtractHeader": "",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": False,
+				"default": "",
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
+			},
+			{
+				"Name": "",
+				"Alias": "",
+				"ExtractHeader": "",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": False,
+				"default": "",
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
+			},
+			{
+				"Name": "",
+				"Alias": "",
+				"ExtractHeader": "",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": False,
+				"default": "",
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
+			},
+			{
+				"Name": "",
+				"Alias": "",
+				"ExtractHeader": "",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": False,
+				"default": "",
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
+			},
+			{
+				"Name": "",
+				"Alias": "",
+				"ExtractHeader": "",
+				"Display": "Y",
+				"DataType": "String",
+				"Nullability": False,
+				"default": "",
+				"Filter":[{
+					"Condition": "",
+					"Value": "",
+					"LogicalOp": ""
+				}],
+				"Transformation":[{
+					"condition":"",
+					"value":""
+				}]
 			}
 		]
 	}],
@@ -103,22 +235,41 @@ jdbc:mysql://HOST:PORT/DATABASE
 			"Alias": "Record Type",
 			"ExtractHeader": "CRL-RECORD-TYPE",
 			"DataType": "String",
-			"Nullability": "False",
-			"default": "2",
-			"Transformation": [
-
-			]
+			"Nullability": False,
+			"default": "2"
 		},
 		{
 			"Alias": "Subscriber number-3bytes",
 			"ExtractHeader": "CRL-SUBSCRIBER-NBR3",
 			"DataType": "String",
-			"Nullability": "False",
-			"default": " ",
-			"Transformation": [
-
-			]
+			"Nullability": False,
+			"default": " "
+		},{
+			"Alias": "Member Number",
+			"ExtractHeader": "CRL-MEM-NBR",
+			"DataType": "Int",
+			"Nullability": False,
+			"default": "0"
+		},{
+			"Alias": "History Number",
+			"ExtractHeader": "CRL-HIST-NBR",
+			"DataType": "String",
+			"Nullability": False,
+			"default": " "
+		},{
+			"Alias": "",
+			"ExtractHeader": "",
+			"DataType": "String",
+			"Nullability": False,
+			"default": " "
+		},{
+			"Alias": "",
+			"ExtractHeader": "",
+			"DataType": "String",
+			"Nullability": False,
+			"default": " "
 		}
+
 	],
 	"Destination": [{
 		"Layout": "CRL",
@@ -129,14 +280,14 @@ jdbc:mysql://HOST:PORT/DATABASE
 		"Header": "False",
 		"SaveMode": "overwrite",
 		"Rules": [{
-				"Type": "Direct",
+				"MappingType": "Direct",
 				"Alias": "State",
 				"Condition": "=",
 				"Value": "IL",
 				"LogicalOp": "and"
 			},
 			{
-				"Type": "Derived - Age",
+				"MappingType": "Derived - Age",
 				"Alias": "Date of Birth",
 				"Condition": ">=",
 				"Value": "19",
@@ -146,5 +297,67 @@ jdbc:mysql://HOST:PORT/DATABASE
 	}]
 }
 
+===================================================================
+case class Template(
+  VendorName:String,
+  ExtractName:String,
+  Version:Double,
+  Table:List[Table],
+  Field:List[Field],
+  DefaultColumns:List[DefaultColumns],
+  Destination:List[Destination])
+  --------------------------------------
+  case class Table(
+    Database:String,
+    TableName:String,
+    Join:List[Join])
+    -------------------------------
+    case class Join (
+  any:Unit
+)
+------------------------------
+case class Filter (
+  Condition:String,
+  Value:String,
+	LogicalOp:String)
+	-----------------------------
+	case class Field(
+    Name:String,
+    Alias:String,
+    ExtractHeader:String,
+    Display:Char,
+    DataType:String,
+    Nullability:Boolean,
+    default:String,
+    Filter:List[Filter],
+    Transformation:List[Transformation])
+    -------------------------------------------
+    
+    case class Destination (
+  Layout:String,
+  FileType:String,
+  FileLocation:String,
+  FileName:String,
+  ArchiveLocation:String,
+  Header:Boolean,
+  SaveMode:String,
+  Rules:List[Rules])
+  
+  --------------------------------------
+  case class DefaultColumns(
+    Alias:String,
+    ExtractHeader:String,
+    DataType:String,
+    Nullability:Boolean,
+    default:Int)
+    ------------------------------------------
+    case class  Rules(
+  MappingType:String,
+  Alias:String,
+  Condition:String,
+  Value:String,
+  LogicalOp:String
+)
+    
 
 
