@@ -359,5 +359,26 @@ case class Filter (
   LogicalOp:String
 )
     
+==================================================================
+import scala.io._
+import com.hcsc.ees.entity.Template
+import org.json4s._
+import org.json4s.jackson.JsonMethods._
 
+object ExtractEngineExecuter {
+  def main(args: Array[String]) {
+    println("Hello World!")
+    /*println(SQLServerConnection.db_url)
+    println(SQLServerConnection.db_driver)
+    println(JDBCConnection.createJDBCConnectionObject())
+    println(SQLServerConnection.createSQLServerConnectionObject())*/
+    val currentDirectory = new java.io.File(".").getCanonicalPath
+    val inputJSON = "MappingJson.json"
+    val jsonPath = s"$currentDirectory/src/main/resources/$inputJSON"
+    println(jsonPath)
+    implicit val formats = DefaultFormats
+    val json = parse(Source.fromFile(jsonPath).mkString)
+    println(json)
+    val rootInfo = json.extract[Template]
+    println(rootInfo.VendorName)
 
